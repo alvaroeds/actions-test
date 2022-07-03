@@ -31,10 +31,11 @@ jobs:
 
       - name: Build
         run: hugo --minify --gc
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/main'
+          
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+            branch: gh-pages
+            folder: public
+            clean: true
+            single-commit: true
